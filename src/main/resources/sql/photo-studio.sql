@@ -7,6 +7,12 @@ INSERT INTO clients (fName, lName, phone)
 
  INSERT INTO clients (fName, lName, phone) 
  VALUES ('Ivan', 'Popov', '380951239876');
+ 
+ INSERT INTO clients (fName, lName, phone) 
+ VALUES ('Emma', 'Dokal', '380681149566');
+ 
+ INSERT INTO clients (fName, lName, phone) 
+ VALUES ('Pavlo', 'Dokal', '380681223500');
 
  INSERT INTO positions (name) 
  VALUES ('photographer');
@@ -16,7 +22,8 @@ INSERT INTO clients (fName, lName, phone)
 
  INSERT INTO positions (name) 
  VALUES ('administrator');
-  INSERT INTO positions (name) 
+ 
+ INSERT INTO positions (name) 
  VALUES ('manager');
 
  SELECT *
@@ -114,5 +121,142 @@ INSERT INTO clients (fName, lName, phone)
  from products;
  
  insert into orders (orderDate, quantity, price, equipment_id, clients_id, location_id, employees_id, products_id)
- values ('2021-10-02', 1, 700, 4, 1, 1, 1, 1);
+ values ('2021-10-02', 1, 700, 1, 1, 1, 1, 1);
+ 
+ insert into orders (orderDate, quantity, price, equipment_id, clients_id, location_id, employees_id, products_id)
+ values ('2021-10-07', 1, 1500, 2, 2, 3, 2, 2);
+ 
+ insert into orders (orderDate, quantity, price, equipment_id, clients_id, location_id, employees_id, products_id)
+ values ('2021-10-17', 1, 750, 1, 3, 2, 1, 1);
+  
+ select *
+ from orders;
+ 
+ update employees
+ set salary = salary + 300
+ where id > 0;
+ select *
+ from employees;
+ 
+ update productsDetails
+ set description = 'photoAndMakeUpAndDress'
+ where id > 0 AND description = 'photoAndMakeUp';
+ select *
+ from productsDetails;
+ 
+ update clients
+ set fName = 'Anastasia'
+ where id > 0 AND fName = 'Nastya';
+ select *
+ from clients;
+ 
+ update orders
+ set orderDate = '2021-10-01'
+ where id > 0 AND orderDate = '2021-10-02';
+ select *
+ from orders;
+ 
+ delete from clients
+ where fName = 'Ivan' AND id > 0;
+ select *
+ from clients;
+ 
+ delete from equipment
+ where amortization = '100' AND id > 0;
+ select *
+ from equipment;
+
+ delete from clients
+ where phone = '380681149566' AND id > 0;
+ select *
+ from clients;
+ 
+ select *
+ from orders
+ where id = 6;
+ 
+ select id, name
+ from equipment 
+ where amortization = '50';
+ 
+ select avg(price) as averagePrice
+ from orders
+ group by orderDate;
+ 
+ select sum(salary) 
+ from employees
+ group by lName;
+ 
+ select distinct lName
+ from clients
+ group by lName;
+ 
+ select orderDate, max(price)
+ from orders
+ group by orderDate
+ having max(price) = 750;
+ 
+
+ select sum(salary) 
+ from employees
+ group by lName
+ having sum(salary) > 109800;
+ 
+ select *
+ from orders
+ having orderDate = '2021-10-17';
+ 
+ select c.lName, o.price
+ from clients c
+ left outer join orders o
+ on o.clients_id = c.id;
+ 
+ select l.name, o.price
+ from location l 
+ left outer join orders o
+ on o.location_id = l.id;
+ 
+ select eq.name, o.orderDate
+ from equipment eq
+ left outer join orders o
+ on o.equipment_id = eq.id;
+ 
+ select o.orderDate, c.lName
+ from orders o
+ right outer join clients c
+ on o.clients_id = c.id;
+ 
+ select p.name, e.lName
+ from positions p
+ right outer join employees e
+ on e.positions_id = p.id;
+ 
+ select p.name, e.salary
+ from positions p
+ right outer join employees e
+ on e.positions_id = p.id;
+ 
+ select c.lName, o.price
+ from clients c
+ inner join orders o
+ on c.id = o.clients_id;
+ 
+ select p.name, o.quantity
+ from products p
+ inner join orders o
+ on p.id = o.products_id;
+ 
+ select p.code, e.lName
+ from passport p 
+ inner join employees e
+ on e.passport_id = p.id;
+ 
+  
+ 
+
+ 
+ 
+ 
+ 
+ 
  
