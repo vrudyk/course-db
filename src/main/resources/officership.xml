@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<officership>
+    <idOfficership>1</idOfficership>
+    <firstName>John</firstName>
+    <lastName>Bang</lastName>
+    <age>32</age>
+    <rankk>soldier</rankk>
+    <gender>male</gender>
+</officership>
