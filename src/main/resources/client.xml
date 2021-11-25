@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<client>
+    <id>1</id>
+    <fName>Masha</fName>
+    <lName>Kovalchuk</lName>
+    <phone>380952310231</phone>
+    <cities>
+        <citi>Kyiv</citi>
+        <citi>Kharkiv</citi>
+        <citi>Lviv</citi>
+    </cities>
+</client>

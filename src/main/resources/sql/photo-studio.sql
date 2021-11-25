@@ -13,6 +13,9 @@ INSERT INTO clients (fName, lName, phone)
  
  INSERT INTO clients (fName, lName, phone) 
  VALUES ('Pavlo', 'Dokal', '380681223500');
+ 
+ SELECT *
+ FROM clients;
 
  INSERT INTO positions (name) 
  VALUES ('photographer');
