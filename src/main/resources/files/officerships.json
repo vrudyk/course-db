@@ -1,0 +1,29 @@
+[
+  {
+    "idOfficership": 3,
+    "firstName": "Nicole",
+    "lastName": "Keedman",
+    "age": 17,
+    "rankk": "soldier",
+    "gender": "female",
+    "militaryBaseid": 4
+  },
+  {
+    "idOfficership": 4,
+    "firstName": "Ken",
+    "lastName": "Barbie",
+    "age": 18,
+    "rankk": "soldier",
+    "gender": "male",
+    "militaryBaseid": 5
+  },
+  {
+    "idOfficership": 5,
+    "firstName": "Michael",
+    "lastName": "Norton",
+    "age": 18,
+    "rankk": "soldier",
+    "gender": "male",
+    "militaryBaseid": 6
+  }
+]

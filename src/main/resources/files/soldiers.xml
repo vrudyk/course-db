@@ -1,0 +1,26 @@
+<soldiers>
+<soldier>
+    <idSoldiers>2</idSoldiers>
+    <firstName>Liam</firstName>
+    <lastName>Thornill</lastName>
+    <age>17</age>
+    <rankk>soldier</rankk>
+    <gender>male</gender>
+</soldier>
+<soldier>
+    <idSoldiers>4</idSoldiers>
+    <firstName>John</firstName>
+    <lastName>Red</lastName>
+    <age>17</age>
+    <rankk>soldier</rankk>
+    <gender>male</gender>
+</soldier>
+<soldier>
+    <idSoldiers>6</idSoldiers>
+    <firstName>Albert</firstName>
+    <lastName>Moon</lastName>
+    <age>17</age>
+    <rankk>soldier</rankk>
+    <gender>male</gender>
+</soldier>
+</soldiers>
