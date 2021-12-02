@@ -1,28 +1,24 @@
 package com.solvd;
 
-import com.mysql.cj.xdevapi.Client;
-import com.solvd.dao.*;
-import com.solvd.model.ClientModel;
-import com.solvd.model.EmployeeModel;
-import com.solvd.model.EmployeesInfoModel;
-import com.solvd.model.PositionModel;
-import com.solvd.util.parsers.JavaToJson;
-import com.solvd.util.parsers.ReadXmlDomParser;
+import com.solvd.util.parsers.DomParser;
+import com.solvd.util.parsers.JsonToJava;
 import org.apache.log4j.Logger;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
+import org.xml.sax.SAXException;
 
-import static com.solvd.util.parsers.JavaToXml.jaxbObjectToXML;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 
 public class Main {
 
     private static final Logger LOGGER = Logger.getLogger(Main.class);
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
 
-        PositionModel positionModel = new PositionModel(1, "photographer");
-        JavaToJson.objectToJson(positionModel);
+        DomParser.parseEmployee();
+
+
+//        PositionModel positionModel = new PositionModel(1, "photographer");
+//        JavaToJson.objectToJson(positionModel);
 
 
 //        ClientModel client = new ClientModel(1, "Masha", "Kovalchuk", "380952310231");

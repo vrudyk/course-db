@@ -13,11 +13,15 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class JsonToJava {
     private static final String format = "yyyy-MM-dd";
-    public static void main(String[] args) throws IOException {
+
+    public List<OrdersModel> readJson() throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
         OrdersModel[] ordersModelList = mapper.readValue(new File("src/main/resources/orders.json"),
@@ -26,5 +30,6 @@ public class JsonToJava {
         for (OrdersModel ordersModel : ordersModelList) {
             System.out.println(ordersModel);
         }
+        return Arrays.stream(ordersModelList).collect(Collectors.toList());
     }
 }
