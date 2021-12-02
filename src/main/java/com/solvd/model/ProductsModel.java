@@ -6,6 +6,15 @@ public class ProductsModel {
     private String name;
     private int productsDetails_id;
 
+    public ProductsModel() {
+    }
+
+    public ProductsModel(int id, String name, int productsDetails_id) {
+        this.id = id;
+        this.name = name;
+        this.productsDetails_id = productsDetails_id;
+    }
+
     public int getId() {
         return id;
     }

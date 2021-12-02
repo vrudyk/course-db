@@ -6,6 +6,15 @@ public class EquipmentModel {
     private String name;
     private int amortization;
 
+    public EquipmentModel() {
+    }
+
+    public EquipmentModel(int id, String name, int amortization) {
+        this.id = id;
+        this.name = name;
+        this.amortization = amortization;
+    }
+
     public int getId() {
         return id;
     }

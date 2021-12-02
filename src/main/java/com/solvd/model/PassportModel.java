@@ -6,6 +6,15 @@ public class PassportModel {
     private String seria;
     private int code;
 
+    public PassportModel() {
+    }
+
+    public PassportModel(int id, String seria, int code) {
+        this.id = id;
+        this.seria = seria;
+        this.code = code;
+    }
+
     public int getId() {
         return id;
     }

@@ -9,6 +9,16 @@ public class EmployeesInfoModel {
     private String address;
     private String phone;
 
+    public EmployeesInfoModel() {
+    }
+
+    public EmployeesInfoModel(int id, Date birthDate, String address, String phone) {
+        this.id = id;
+        this.birthDate = birthDate;
+        this.address = address;
+        this.phone = phone;
+    }
+
     public int getId() {
         return id;
     }

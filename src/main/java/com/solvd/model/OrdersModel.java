@@ -1,18 +1,43 @@
 package com.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 
+@JsonIgnoreProperties({ "equipment_id","clients_id", "location_id", "employees_id", "products_id" })
 public class OrdersModel {
 
     private int id;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date orderDate;
     private int quantity;
     private int price;
+
+    @JsonIgnore
     private int equipment_id;
     private int clients_id;
     private int location_id;
     private int employees_id;
     private int products_id;
+
+    public OrdersModel() {
+    }
+
+    public OrdersModel(int id, Date orderDate, int quantity, int price, int equipment_id,
+                       int clients_id, int location_id, int employees_id, int products_id) {
+        this.id = id;
+        this.orderDate = orderDate;
+        this.quantity = quantity;
+        this.price = price;
+        this.equipment_id = equipment_id;
+        this.clients_id = clients_id;
+        this.location_id = location_id;
+        this.employees_id = employees_id;
+        this.products_id = products_id;
+    }
 
     public int getId() {
         return id;
@@ -22,10 +47,12 @@ public class OrdersModel {
         this.id = id;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     public Date getOrderDate() {
         return orderDate;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
@@ -46,10 +73,12 @@ public class OrdersModel {
         this.price = price;
     }
 
+    @JsonIgnore
     public int getEquipment_id() {
         return equipment_id;
     }
 
+    @JsonIgnore
     public void setEquipment_id(int equipment_id) {
         this.equipment_id = equipment_id;
     }

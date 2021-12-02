@@ -1,0 +1,12 @@
+<company>
+    <employee id="1">
+        <fName>Artur</fName>
+        <lName>Ohota</lName>
+        <salary currency="USD">100000</salary>
+    </employee>
+    <employee id="2">
+        <fName>Ladik</fName>
+        <lName>Ohota</lName>
+        <salary currency="USD">200000</salary>
+    </employee>
+</company>

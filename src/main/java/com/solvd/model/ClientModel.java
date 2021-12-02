@@ -20,10 +20,10 @@ public class ClientModel implements Serializable {
     @XmlElement(name = "citi")
     private List<String> cities;
 
-    public ClientModel() { super(); }
+    public ClientModel() {
+    }
 
     public ClientModel(int id, String fName, String lName, String phone) {
-        super();
         this.id = id;
         this.fName = fName;
         this.lName = lName;

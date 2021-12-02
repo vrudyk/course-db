@@ -11,6 +11,20 @@ public class EmployeeModel {
     private int passport_id;
     private int employeesInfo_id;
 
+    public EmployeeModel() {
+    }
+
+    public EmployeeModel(int id, String fName, String lName, String salary,
+                         int positions_id, int passport_id, int employeesInfo_id) {
+        this.id = id;
+        this.fName = fName;
+        this.lName = lName;
+        this.salary = salary;
+        this.positions_id = positions_id;
+        this.passport_id = passport_id;
+        this.employeesInfo_id = employeesInfo_id;
+    }
+
     public int getId() {
         return id;
     }
