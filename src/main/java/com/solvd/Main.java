@@ -6,16 +6,25 @@ import com.solvd.dao.OnlineShopesDAO;
 import com.solvd.model.ClientsModel;
 import com.solvd.model.ListOfGoodsModel;
 import com.solvd.model.OnlineShopesModel;
+import com.solvd.util.parses.JaxbToXML;
+import com.solvd.util.parses.ReadXML;
 import org.apache.log4j.Logger;
+
+import javax.xml.stream.XMLStreamException;
+import java.io.FileNotFoundException;
 
 public class Main {
 
     private static final Logger LOGGER = Logger.getLogger(Main.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
         ClientsDAO clientsDAO = new ClientsDAO();
-        LOGGER.info(clientsDAO.getRandomClient().toString());
-        randomClientBuyProduct(clientsDAO.getRandomClient());
+        ClientsModel client = clientsDAO.getRandomClient();
+        randomClientBuyProduct(client);
+        new ReadXML().readXML();
+
+        JaxbToXML jaxbToXML = new JaxbToXML();
+        jaxbToXML.jaxbObjToXML(client);
     }
 
     public static void randomClientBuyProduct(ClientsModel client){
@@ -36,4 +45,5 @@ public class Main {
                 "Phone number: "+onlineShop.getPhoneNumber()+"\n";
         LOGGER.info("Check:\n"+check);
     }
+
 }
