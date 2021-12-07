@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.dao.interfaces.IProductsDetailsDAO">
+    <resultMap id="productsDetails" type="com.solvd.model.ProductsDetailsModel">
+        <id property="id" column="id"/>
+        <result property="description" column="description"/>
+    </resultMap>
+    <select id="getAllProductsDetail" resultMap="productsDetails">
+        SELECT * FROM productsDetails;
+    </select>
+</mapper>

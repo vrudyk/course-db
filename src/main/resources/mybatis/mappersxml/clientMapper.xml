@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.dao.interfaces.IClientsDAO">
+    <resultMap id="clients" type="com.solvd.model.ClientModel">
+        <id property="id" column="id"/>
+        <result property="fName" column="fName"/>
+        <result property="lName" column="lName"/>
+        <result property="phone" column="phone"/>
+    </resultMap>
+    <select id="getAllClient" resultMap="clients">
+        SELECT * FROM clients;
+    </select>
+    <insert id="addClients" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO clients (fName, lName, phone) VALUES (#{fName}, #{lName}, #{phone})
+    </insert>
+    <delete id="deleteClient" parameterType="int">
+        DELETE FROM clients WHERE id =#{id};
+    </delete>
+    <update id="updateClient" parameterType="com.solvd.model.ClientModel">
+        UPDATE clients SET fName=#{fName}, lName =#{lName}, phone =#{phone} WHERE id =#{id};
+    </update>
+</mapper>

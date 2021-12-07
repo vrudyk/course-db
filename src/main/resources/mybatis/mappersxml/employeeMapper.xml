@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.dao.interfaces.IEmployeesDAO">
+    <resultMap id="employee" type="com.solvd.model.EmployeeModel">
+        <id property="id" column="id"/>
+        <result property="fName" column="fName"/>
+        <result property="lName" column="lName"/>
+        <result property="salary" column="salary"/>
+        <result property="positions_id" column="positions_id"/>
+        <result property="passport_id" column="passport_id"/>
+        <result property="employeesInfo_id" column="employeesInfo_id"/>
+    </resultMap>
+    <select id="getAllEmployee" resultMap="employee">
+    SELECT * FROM employees;
+    </select>
+    <insert id="addEmployees" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO employees (fName, lName, salary, positions_id, passport_id, employeesInfo_id) VALUES (#{fName}, #{lName}, #{salary}, #{positions_id}, #{passport_id}, #{employeesInfo_id})
+    </insert>
+    <update id="updateEmployees" parameterType="com.solvd.model.EmployeeModel">
+        UPDATE employees SET fName=#{fName}, lName =#{lName}, salary =#{salary}, positions_id =#{positions_id}, passport_id =#{passport_id}, employeesInfo_id =#{employeesInfo_id} WHERE id =#{id};
+    </update>
+</mapper>

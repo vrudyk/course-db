@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.dao.interfaces.IEquipmentDAO">
+    <resultMap id="equipment" type="com.solvd.model.EquipmentModel">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="amortization" column="amortization"/>
+    </resultMap>
+    <select id="getAllEquipments" resultMap="equipment">
+        SELECT * FROM equipment;
+    </select>
+    <delete id="deleteEquipment" parameterType="int">
+        DELETE FROM equipment WHERE id =#{id};
+    </delete>
+</mapper>

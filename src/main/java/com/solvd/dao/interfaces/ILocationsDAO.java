@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ILocationsDAO {
     List<LocationModel> getAllLocations();
+
+    List<LocationModel> getAllLocation();
 }

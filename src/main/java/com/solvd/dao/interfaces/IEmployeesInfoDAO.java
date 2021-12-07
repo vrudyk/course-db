@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IEmployeesInfoDAO {
     List<EmployeesInfoModel> getAllEmployeesInfo();
+
+    List<EmployeesInfoModel> getAllEmployeeInfo();
 }

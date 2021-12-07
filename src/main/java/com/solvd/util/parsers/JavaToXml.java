@@ -14,7 +14,7 @@ public class JavaToXml {
 
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-            jaxbMarshaller.marshal(client, new File("src/main/resources/client.xml"));
+            jaxbMarshaller.marshal(client, new File("src/main/resources/xml/client.xml"));
         } catch (JAXBException e) {
             e.printStackTrace();
         }

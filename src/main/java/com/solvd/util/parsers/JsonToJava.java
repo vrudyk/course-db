@@ -24,7 +24,7 @@ public class JsonToJava {
     public List<OrdersModel> readJson() throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
-        OrdersModel[] ordersModelList = mapper.readValue(new File("src/main/resources/orders.json"),
+        OrdersModel[] ordersModelList = mapper.readValue(new File("src/main/resources/json/orders.json"),
                 OrdersModel[].class);
         System.out.println("Orders Array ->");
         for (OrdersModel ordersModel : ordersModelList) {

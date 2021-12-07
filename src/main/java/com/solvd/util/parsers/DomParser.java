@@ -18,14 +18,14 @@ import java.util.List;
 
 public class DomParser {
     private static final Logger LOGGER = Logger.getLogger(DomParser.class);
-    private static final String FILENAME = "src/main/resources/employee.xml";
+    private static final String FILENAME = "src/main/resources/xml/employee.xml";
 
     public static List<EmployeeModel> parseEmployee() throws ParserConfigurationException, IOException, SAXException {
         List<EmployeeModel> employeeModels = new ArrayList<>();
         EmployeeModel employeeModel = null;
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(new File("src/main/resources/employee.xml"));
+        Document document = builder.parse(new File("src/main/resources/xml/employee.xml"));
         document.getDocumentElement().normalize();
         NodeList nList = document.getElementsByTagName("employee");
         for (int temp = 0; temp < nList.getLength(); temp++) {

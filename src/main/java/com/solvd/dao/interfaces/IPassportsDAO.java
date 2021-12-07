@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IPassportsDAO {
     List<PassportModel> getAllPassports();
+
+    List<PassportModel> getAllPassport();
 }

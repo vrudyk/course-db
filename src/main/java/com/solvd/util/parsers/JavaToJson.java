@@ -18,7 +18,7 @@ public class JavaToJson {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            mapper.writeValue(new File("src/main/resources/positions.json"), positionModel);
+            mapper.writeValue(new File("src/main/resources/json/positions.json"), positionModel);
         } catch (StreamWriteException e) {
             e.printStackTrace();
         } catch (DatabindException e) {

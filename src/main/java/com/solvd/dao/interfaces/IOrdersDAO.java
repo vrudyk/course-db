@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IOrdersDAO {
     List<OrdersModel> getAllOrders();
+
+    List<OrdersModel> getAllOrder();
 }

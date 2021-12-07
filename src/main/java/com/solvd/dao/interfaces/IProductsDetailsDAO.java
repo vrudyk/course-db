@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IProductsDetailsDAO {
     List<ProductsDetailsModel> getAllProductsDetails();
+
+    List<ProductsDetailsModel> getAllProductsDetail();
 }

@@ -4,8 +4,8 @@ import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.util.List;
 
-@XmlRootElement(name = "client")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement(name = "client")
+//@XmlAccessorType(XmlAccessType.FIELD)
 
 public class ClientModel implements Serializable {
 
@@ -16,9 +16,9 @@ public class ClientModel implements Serializable {
     private String lName;
     private String phone;
 
-    @XmlElementWrapper(name = "cities")
-    @XmlElement(name = "citi")
-    private List<String> cities;
+//    @XmlElementWrapper(name = "cities")
+//    @XmlElement(name = "citi")
+//    private List<String> cities;
 
     public ClientModel() {
     }
@@ -62,21 +62,21 @@ public class ClientModel implements Serializable {
         this.phone = phone;
     }
 
-    public List<String> getCities() {
-        return cities;
-    }
-
-    public void setCities(List<String> cities) {
-        this.cities = cities;
-    }
-
-    //    @Override
-//    public String toString() {
-//        return "ClientModel{" +
-//                "id=" + id +
-//                ", fName='" + fName + '\'' +
-//                ", lName='" + lName + '\'' +
-//                ", phone='" + phone + '\'' +
-//                '}';
+//    public List<String> getCities() {
+//        return cities;
 //    }
+//
+//    public void setCities(List<String> cities) {
+//        this.cities = cities;
+//    }
+
+        @Override
+    public String toString() {
+        return "ClientModel{" +
+                "id=" + id +
+                ", fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }
