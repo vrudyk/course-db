@@ -1,5 +1,7 @@
 package com.solvd;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solvd.dao.ClientsDAO;
 import com.solvd.dao.ListOfGoodsDAO;
 import com.solvd.dao.OnlineShopesDAO;
@@ -11,13 +13,17 @@ import com.solvd.util.parses.ReadXML;
 import org.apache.log4j.Logger;
 
 import javax.xml.stream.XMLStreamException;
-import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     private static final Logger LOGGER = Logger.getLogger(Main.class);
 
-    public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
+    public static void main(String[] args) throws IOException, XMLStreamException {
         ClientsDAO clientsDAO = new ClientsDAO();
         ClientsModel client = clientsDAO.getRandomClient();
         randomClientBuyProduct(client);
@@ -25,6 +31,17 @@ public class Main {
 
         JaxbToXML jaxbToXML = new JaxbToXML();
         jaxbToXML.jaxbObjToXML(client);
+
+        List<OnlineShopesModel> onlineShop = new OnlineShopesDAO().getAllOnlineShopes();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.writeValue(new File("src/main/resources/onlineShopObjToJSON.json"),onlineShop);
+
+        List<OnlineShopesModel> onlineShopJSONToObj = new ArrayList<>();
+        onlineShopJSONToObj = objectMapper.readValue(new File("src/main/resources/onlineShopObjToJSON.json"),
+                new TypeReference<List<OnlineShopesModel>>(){});
+        for(int i=0; i<onlineShopJSONToObj.size();i++){
+            LOGGER.info(onlineShopJSONToObj.get(i).toString()+"\n");
+        }
     }
 
     public static void randomClientBuyProduct(ClientsModel client){
