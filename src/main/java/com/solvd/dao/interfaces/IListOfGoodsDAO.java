@@ -7,5 +7,7 @@ import java.util.List;
 public interface IListOfGoodsDAO {
     public List<ListOfGoodsModel> getListOfGoods();
 
+    public List<ListOfGoodsModel> getListOfGoodsMyBatis();
+
     public ListOfGoodsModel getProductInShop(int id);
 }

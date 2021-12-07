@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IEmployeesDAO {
     public List<EmployeesModel> getAllEmployees();
+
+    public List<EmployeesModel> getAllEmployeesMyBatis();
 }

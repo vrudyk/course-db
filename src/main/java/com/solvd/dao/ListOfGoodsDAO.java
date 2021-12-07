@@ -1,15 +1,22 @@
 package com.solvd.dao;
 
 import com.solvd.configuration.AbstractDAO;
+import com.solvd.dao.interfaces.ICreditCardsDAO;
 import com.solvd.dao.interfaces.IListOfGoodsDAO;
+import com.solvd.model.EmployeesModel;
 import com.solvd.model.ListOfGoodsModel;
 import com.solvd.model.OnlineShopesModel;
+import com.solvd.util.OpenSession;
+import org.apache.ibatis.session.SqlSession;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListOfGoodsDAO extends AbstractDAO implements IListOfGoodsDAO {
+
+    private IListOfGoodsDAO entityDAO;
+    private Class<IListOfGoodsDAO> DAOClass = IListOfGoodsDAO.class;
 
     @Override
     public List<ListOfGoodsModel> getListOfGoods() {
@@ -55,5 +62,15 @@ public class ListOfGoodsDAO extends AbstractDAO implements IListOfGoodsDAO {
             closeAll();
         }
         return product;
+    }
+
+
+    @Override
+    public List<ListOfGoodsModel> getListOfGoodsMyBatis() {
+        SqlSession sqlSession = OpenSession.getOpenSession().openSession();
+        entityDAO = sqlSession.getMapper(DAOClass);
+        List<ListOfGoodsModel> entities = entityDAO.getListOfGoodsMyBatis();
+        sqlSession.close();
+        return entities;
     }
 }

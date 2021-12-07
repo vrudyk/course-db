@@ -3,13 +3,16 @@ package com.solvd.dao;
 import com.solvd.configuration.AbstractDAO;
 import com.solvd.dao.interfaces.IEmployeesDAO;
 import com.solvd.model.EmployeesModel;
+import com.solvd.util.OpenSession;
+import org.apache.ibatis.session.SqlSession;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeesDAO extends AbstractDAO implements IEmployeesDAO {
-
+    private IEmployeesDAO entityDAO;
+    private Class<IEmployeesDAO> DAOClass = IEmployeesDAO.class;
     @Override
     public List<EmployeesModel> getAllEmployees() {
         List<EmployeesModel> allEmplooyees = new ArrayList<>();
@@ -31,5 +34,14 @@ public class EmployeesDAO extends AbstractDAO implements IEmployeesDAO {
             closeAll();
         }
         return allEmplooyees;
+    }
+
+    @Override
+    public List<EmployeesModel> getAllEmployeesMyBatis() {
+        SqlSession sqlSession = OpenSession.getOpenSession().openSession();
+        entityDAO = sqlSession.getMapper(DAOClass);
+        List<EmployeesModel> entities = entityDAO.getAllEmployeesMyBatis();
+        sqlSession.close();
+        return entities;
     }
 }

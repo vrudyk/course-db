@@ -7,4 +7,6 @@ import java.util.List;
 public interface ISuppliersDAO {
 
     public List<SuppliersModel> getAllSuppliers();
+
+    public List<SuppliersModel> getAllSuppliersMyBatis();
 }
