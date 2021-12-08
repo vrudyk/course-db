@@ -4,7 +4,7 @@ public class AmmunitionModel {
     private int idAmmunition;
     private String nameAmmunition;
     private int quantityWeapon;
-
+    private int weaponIdweapon;
 
     public int getIdAmmunition() {
         return idAmmunition;
@@ -30,12 +30,21 @@ public class AmmunitionModel {
         this.quantityWeapon = quantityWeapon;
     }
 
+    public int getWeaponIdweapon() {
+        return weaponIdweapon;
+    }
+
+    public void setWeaponIdweapon(int weaponIdweapon) {
+        this.weaponIdweapon = weaponIdweapon;
+    }
+
     @Override
     public String toString() {
         return "AmmunitionModel{" +
                 "idAmmunition=" + idAmmunition +
                 ", nameAmmunition='" + nameAmmunition + '\'' +
                 ", quantityWeapon=" + quantityWeapon +
+                ", weaponIdweapon=" + weaponIdweapon +
                 '}';
     }
 }

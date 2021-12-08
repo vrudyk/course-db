@@ -8,6 +8,7 @@ public class SoldierModel {
     private int age;
     private String rankk;
     private String gender;
+    private int officerShipid;
 
     public SoldierModel() {
     }
@@ -60,6 +61,14 @@ public class SoldierModel {
         this.gender = gender;
     }
 
+    public int getOfficerShipid() {
+        return officerShipid;
+    }
+
+    public void setOfficerShipid(int officerShipid) {
+        this.officerShipid = officerShipid;
+    }
+
     @Override
     public String toString() {
         return "SoldierModel{" +
@@ -69,6 +78,7 @@ public class SoldierModel {
                 ", age=" + age +
                 ", rankk='" + rankk + '\'' +
                 ", gender='" + gender + '\'' +
+                ", officerShipid=" + officerShipid +
                 '}';
     }
 }

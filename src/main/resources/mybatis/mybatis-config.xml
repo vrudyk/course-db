@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="mybatis/database.properties"/>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driver}"/>
+                <property name="url" value="${db.url}"/>
+                <property name="username" value="${db.user}"/>
+                <property name="password" value="${db.pass}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis/mappersxml/officershipMapper.xml"/>
+        <mapper resource="mybatis/mappersxml/armyMapper.xml"/>
+        <mapper resource="mybatis/mappersxml/ammunitionMapper.xml"/>
+        <mapper resource="mybatis/mappersxml/aviaweaponMapper.xml"/>
+        <mapper resource="mybatis/mappersxml/landweaponMapper.xml"/>
+        <mapper resource="mybatis/mappersxml/militarybaseMapper.xml"/>
+        <mapper resource="mybatis/mappersxml/militaryequipmentMapper.xml"/>
+        <mapper resource="mybatis/mappersxml/navyweaponMapper.xml"/>
+        <mapper resource="mybatis/mappersxml/soldiersMapper.xml"/>
+        <mapper resource="mybatis/mappersxml/weaponMapper.xml"/>
+    </mappers>
+</configuration>
+

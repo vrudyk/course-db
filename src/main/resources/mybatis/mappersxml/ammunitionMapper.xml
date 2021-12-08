@@ -1,0 +1,13 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.dao.interfaces.IAmmunitionDAO">
+    <resultMap id="ammunitioin" type="com.solvd.model.AmmunitionModel">
+        <id property="idAmmunition" column="idAmmunition"/>
+        <result property="nameAmmunition" column="nameAmmunition"/>
+        <result property="quantityWeapon" column="quantityWeapon"/>
+        <result property="weaponIdweapon" column="weaponIdweapon"/>
+           </resultMap>
+    <select id="getAllAmmunition" resultMap="ammunitioin">
+        SELECT * FROM bloshkoarmy.ammunition
+    </select>
+</mapper>

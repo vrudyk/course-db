@@ -17,8 +17,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 
-@XmlRootElement(name = "officership")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement(name = "officership")
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class OfficershipModel implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(OfficershipModel.class);
     private static final long serialVersionUID = 1L;
@@ -128,12 +128,12 @@ public class OfficershipModel implements Serializable {
         }
     }
 
-    public static void jsonParse(OfficershipModel officership) throws IOException {
+    public static void parseJsonTowrite(OfficershipModel officership) throws IOException {
         OfficershipModel officershiper = new OfficershipModel(1, "Reebook", "Nike", 33, "soldier", "male", 2);
         officer.writeValue(new File("src/main/resources/officership.json"), officershiper);
     }
 
-    public static void parseJs(OfficershipModel officership2) throws IOException {
+    public static void parseJsonNode(OfficershipModel officership2) throws IOException {
         try {
             String officerJson = "{\"idOfficership\": 1,\"firstName\": \"Reebook\", \"lastName\": \"Nike\", \"age\":33, \"rankk\":\"soldier\", \"gender\": \"male\", \"militaryBaseid\": 2}";
             OfficershipModel officers = officer.readValue((officerJson), OfficershipModel.class);
@@ -147,7 +147,7 @@ public class OfficershipModel implements Serializable {
         }
     }
 
-    public static void parseArrayJs(OfficershipModel officership3) throws IOException {
+    public static void parseArrayJasonRead(OfficershipModel officership3) throws IOException {
         try {
             List<OfficershipModel> officerlist = officer.readValue(new File("src/main/resources/files/officerships.json"), new TypeReference<List<OfficershipModel>>() {
             });

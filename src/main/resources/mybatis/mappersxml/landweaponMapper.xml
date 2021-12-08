@@ -1,0 +1,24 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.dao.interfaces.ILandweaponDAO">
+    <resultMap id="landweapon" type="com.solvd.model.LandweaponModel">
+        <id property="idLandweapon" column="idLandweapon"/>
+        <result property="nameLandweapon" column="nameLandweapon"/>
+        <result property="quantityLandweapon" column="quantityLandweapon"/>
+        <result property="weaponIdland" column="weaponIdland"/>
+    </resultMap>
+    <select id="getAllLandweapon" resultMap="landweapon">
+        SELECT * FROM bloshkoarmy.landweapon
+    </select>
+    <insert id="addLandweapon">
+        INSERT INTO bloshkoarmy.landweapon (idLandweapon,nameLandweapon,quantityLandweapon, weaponIdland)
+        VALUES (#{idLandweapon},#{nameLandweapon},#{quantityLandweapon},#{weaponIdland} )
+    </insert>
+    <update id="updateLandweapon">
+        UPDATE bloshkoarmy.landweapon SET nameLandweapon=#{nameLandweapon}
+        WHERE idLandweapon=#{idLandweapon}
+    </update>
+    <delete id="deleteLandweapon">
+        DELETE FROM bloshkoarmy.landweapon WHERE idLandweapon=#{idLandweapon}
+    </delete>
+</mapper>

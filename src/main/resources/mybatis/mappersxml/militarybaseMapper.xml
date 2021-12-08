@@ -1,0 +1,13 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.dao.interfaces.IMilitarybaseDAO">
+    <resultMap id="militarybase" type="com.solvd.model.MilitarybaseModel">
+        <id property="idArmyBase" column="idArmyBase"/>
+        <result property="nameBase" column="nameBase"/>
+        <result property="number" column="number"/>
+        <result property="localAddress" column="localAddress"/>
+    </resultMap>
+    <select id="getAllMilitarybases" resultMap="militarybase">
+        SELECT * FROM bloshkoarmy.militarybase
+    </select>
+</mapper>

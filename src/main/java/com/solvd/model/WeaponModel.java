@@ -5,7 +5,7 @@ public class WeaponModel {
     private String name;
     private String classs;
 
-    public int getIdWeapon() {
+    public int getIdWeapon(int i) {
         return idWeapon;
     }
 

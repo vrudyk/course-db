@@ -17,7 +17,7 @@ public class Requestdate {
     private int age;
     Date birthDate;
 
-    public Requestdate (String firstName, String lastName, int age, Date birthDate) {
+    public Requestdate(String firstName, String lastName, int age, Date birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -70,7 +70,7 @@ public class Requestdate {
     }
 
 
-    public static void parDate(Requestdate requestDate) throws IOException, ParseException {
+    public static void parseDateFormat(Requestdate requestDate) throws IOException, ParseException {
         ObjectMapper objectMapper = new ObjectMapper();
         DateFormat pasteDate = new SimpleDateFormat("dd-MM-yyyy hh:mm");
         pasteDate.setTimeZone(TimeZone.getTimeZone("UTC"));

@@ -71,7 +71,7 @@ public class Soldiers {
     }
 
     public static void arrayParse(Soldiers soldiers) throws IOException {
-           try {
+        try {
             ObjectMapper soldiermap = new ObjectMapper();
             ObjectNode soldier1 = soldiermap.createObjectNode();
             soldier1.put("idSoldier", 1);

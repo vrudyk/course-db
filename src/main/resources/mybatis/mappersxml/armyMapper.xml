@@ -1,0 +1,15 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.dao.interfaces.IArmyDAO">
+    <resultMap id="army" type="com.solvd.model.ArmyModel">
+        <id property="idArmy" column="idArmy"/>
+        <result property="nameArmy" column="nameArmy"/>
+        <result property="lastName" column="lastName"/>
+        <result property="classArmy" column="classArmy"/>
+        <result property="quantityArmy" column="quantityArmy"/>
+        <result property="militaryBaseidArmybase" column="militaryBaseidArmybase"/>
+           </resultMap>
+    <select id="getAllArmy" resultMap="army">
+        SELECT * FROM bloshkoarmy.army
+    </select>
+</mapper>
