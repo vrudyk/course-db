@@ -10,6 +10,7 @@ public class AbstractDAO {
     protected ResultSet resultSet;
     private Connection connection;
 
+
     public Connection getConnection() {
         MyConnection.newInstance();
         connection = MyConnection.getConnection(IConstants.BANK_URL, IConstants.USERNAME, IConstants.PASSWORD);
