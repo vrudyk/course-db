@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<banks>
+    <bank idBank="55">
+        <Name>SberBank</Name>
+    </bank>
+    <bank idBank="66">
+        <Name>GasBank</Name>
+    </bank>
+    <bank idBank="77">
+        <Name>UaBank</Name>
+    </bank>
+    <bank idBank="88">
+        <Name>NacBank</Name>
+    </bank>
+</banks>
