@@ -7,6 +7,16 @@ public class NavyweaponModel {
     private int quantityNavyweapon;
     private int weaponIdnavy;
 
+    public NavyweaponModel() {
+    }
+
+    public NavyweaponModel(int idNavyweapon, String nameNavyweapon, int quantityNavyweapon, int weaponIdnavy) {
+        this.idNavyweapon = idNavyweapon;
+        this.nameNavyweapon = nameNavyweapon;
+        this.quantityNavyweapon = quantityNavyweapon;
+        this.weaponIdnavy = weaponIdnavy;
+    }
+
     public int getIdNavyweapon() {
         return idNavyweapon;
     }

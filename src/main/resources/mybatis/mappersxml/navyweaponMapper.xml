@@ -6,9 +6,13 @@
         <result property="nameNavyweapon" column="nameNavyweapon"/>
         <result property="quantityNavyweapon" column="quantityNavyweapon"/>
         <result property="weaponIdnavy" column="weaponIdnavy"/>
-       </resultMap>
+    </resultMap>
     <select id="getAllNavyweapons" resultMap="navyweapon">
         SELECT * FROM bloshkoarmy.navyweapon
+    </select>
+    <select id="getById" resultMap="navyweapon">
+        SELECT * FROM bloshkoarmy.navyweapon
+        WHERE idNavyweapon=#{idNavyweapon}
     </select>
     <insert id="addNavyweapon">
         INSERT INTO bloshkoarmy.navyweapon (idNavyweapon,nameNavyweapon,quantityNavyweapon, weaponIdnavy)

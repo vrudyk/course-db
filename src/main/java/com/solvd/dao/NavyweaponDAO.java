@@ -2,10 +2,12 @@ package com.solvd.dao;
 
 import com.solvd.configuration.AbstractDAO;
 import com.solvd.dao.interfaces.INavyweaponDAO;
+import com.solvd.model.LandweaponModel;
 import com.solvd.model.NavyweaponModel;
 import com.solvd.util.OpenSession;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +54,7 @@ public class NavyweaponDAO extends AbstractDAO implements INavyweaponDAO {
     }
 
     @Override
-    public List<NavyweaponModel> getAllnavyWeapons() {
+    public List<NavyweaponModel> getAllnavyWeapon() {
         List<NavyweaponModel> allNavyweapons = new ArrayList<>();
         try {
             getResultSet("SELECT * FROM bloshkoarmy.navyweapon;");
@@ -72,5 +74,19 @@ public class NavyweaponDAO extends AbstractDAO implements INavyweaponDAO {
         return allNavyweapons;
     }
 
+    @Override
+    public void addNavyweapon(int idNavyweapon, String nameNavyweapon, int quantityNavyweapon, int weaponIdnavy) {
+
+    }
+
+    @Override
+    public void updateNavyweapon(int idNavyweapon, String nameNavyweapon) {
+
+    }
+
+    @Override
+    public List<NavyweaponModel> getById(int idNavyweapon) {
+        return null;
+    }
 }
 

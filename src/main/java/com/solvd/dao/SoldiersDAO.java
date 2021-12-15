@@ -7,6 +7,7 @@ import com.solvd.model.SoldierModel;
 import com.solvd.util.OpenSession;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ public class SoldiersDAO extends AbstractDAO implements ISoldiersDAO {
     private static final Logger LOGGER = Logger.getLogger(Main.class);
     private ISoldiersDAO entityDAO;
     private Class<ISoldiersDAO> DAOClass = ISoldiersDAO.class;
+
 
     @Override
     public List<SoldierModel> getAllSoldiers() {
@@ -25,6 +27,7 @@ public class SoldiersDAO extends AbstractDAO implements ISoldiersDAO {
         return entities;
 
     }
+
     @Override
     public List<SoldierModel> getAllsoldiers() {
         List<SoldierModel> allSoldiers = new ArrayList<>();

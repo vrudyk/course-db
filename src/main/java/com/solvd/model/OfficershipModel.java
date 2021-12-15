@@ -139,8 +139,8 @@ public class OfficershipModel implements Serializable {
             OfficershipModel officers = officer.readValue((officerJson), OfficershipModel.class);
             JsonNode jsonNode = officer.readTree(officerJson);
             String firstName = jsonNode.get("firstName").asText();
-            LOGGER.info(officers);
-            LOGGER.info(officers.getFirstName());
+            // LOGGER.info(officers);
+            //LOGGER.info(officers.getFirstName());
         } catch (JsonProcessingException e) {
             e.printStackTrace();
 
@@ -151,7 +151,7 @@ public class OfficershipModel implements Serializable {
         try {
             List<OfficershipModel> officerlist = officer.readValue(new File("src/main/resources/files/officerships.json"), new TypeReference<List<OfficershipModel>>() {
             });
-            LOGGER.info(officerlist);
+            //LOGGER.info(officerlist);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
 

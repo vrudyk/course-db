@@ -10,6 +10,10 @@
     <select id="getAllLandweapon" resultMap="landweapon">
         SELECT * FROM bloshkoarmy.landweapon
     </select>
+    <select id="getById" resultMap="landweapon">
+        SELECT * FROM bloshkoarmy.landweapon
+        WHERE idLandweapon=#{idLandweapon}
+    </select>
     <insert id="addLandweapon">
         INSERT INTO bloshkoarmy.landweapon (idLandweapon,nameLandweapon,quantityLandweapon, weaponIdland)
         VALUES (#{idLandweapon},#{nameLandweapon},#{quantityLandweapon},#{weaponIdland} )
@@ -22,3 +26,4 @@
         DELETE FROM bloshkoarmy.landweapon WHERE idLandweapon=#{idLandweapon}
     </delete>
 </mapper>
+

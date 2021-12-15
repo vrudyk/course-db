@@ -4,8 +4,10 @@ import com.solvd.configuration.AbstractDAO;
 import com.solvd.dao.interfaces.ILandweaponDAO;
 import com.solvd.model.LandweaponModel;
 import com.solvd.util.OpenSession;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +54,7 @@ public class LandweaponDAO extends AbstractDAO implements ILandweaponDAO {
 
 
     @Override
-    public List<LandweaponModel> getAllLandweapons() {
+    public void getAllLandweapons() {
         List<LandweaponModel> allLandweapon = new ArrayList<>();
         try {
             getResultSet("SELECT * FROM bloshkoarmy.landweapon;");
@@ -69,8 +71,27 @@ public class LandweaponDAO extends AbstractDAO implements ILandweaponDAO {
         } finally {
             closeALL();
         }
-        return allLandweapon;
     }
 
+
+    @Override
+    public void addLandweapon(int idLandweapon, String nameLandweapon, int quantityLandweapon, int weaponIdland) {
+        SqlSession session = OpenSession.getOpenSession().openSession();
+        entityDAO = session.getMapper(DAOClass);
+        entityDAO.addLandweapon(6, "TT", 12, 3);
+        session.commit();
+        session.close();
+    }
+
+    @Override
+    public void updateLandweapon(@Param("idLandweapon") int idLandweapon, @Param("nameLandweapon") String nameLandweapon) {
+
+    }
+
+    @Override
+    public List<LandweaponModel> getById(int idLandweapon) {
+
+        return null;
+    }
 }
 

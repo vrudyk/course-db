@@ -6,6 +6,16 @@ public class LandweaponModel {
     private int quantityLandweapon;
     private int weaponIdland;
 
+    public LandweaponModel() {
+    }
+
+    public LandweaponModel(int idLandweapon, String nameLandweapon, int quantityLandweapon, int weaponIdland) {
+        this.idLandweapon = idLandweapon;
+        this.nameLandweapon = nameLandweapon;
+        this.quantityLandweapon = quantityLandweapon;
+        this.weaponIdland = weaponIdland;
+    }
+
     public int getIdLandweapon() {
         return idLandweapon;
     }
