@@ -1,8 +1,6 @@
 package com.solvd.model;
 
-import javax.xml.bind.annotation.*;
 import java.io.Serializable;
-import java.util.List;
 
 //@XmlRootElement(name = "client")
 //@XmlAccessorType(XmlAccessType.FIELD)
