@@ -1,12 +1,20 @@
 package com.solvd;
 
 import com.solvd.dao.BankDAO;
+import com.solvd.model.Client;
+import com.solvd.service.parsers.JaxbReader;
+import com.solvd.service.parsers.JaxbWriter;
+import com.solvd.util.parsers.SaxParser;
 import com.solvd.util.parsers.handlers.BankXmlParser;
 import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -23,22 +31,16 @@ public class Main {
         // LOGGER.info("==============\n");
         // bankDAO.deleteBankById(5);
         // bankDAO.getAllBanks().forEach(LOGGER::info);
+        // SaxParser.saxParserXmlToObject();
 
-        saxParserXmlToObject();
-    }
+        Client client = new Client();
+        client.setIdClient(11);
+        client.setName("Vasia");
+        client.setAge(22);
+        client.setPassport_Passport_number(123456799);
+        client.setPassport_Identification_Code(1234567800);
 
-    public static void saxParserXmlToObject() throws FileNotFoundException {
-        //Locate the file
-        File xmlFile = new File("src/main/resources/bank.xml");
-
-        //Create the parser instance
-        BankXmlParser parser = new BankXmlParser();
-
-        //Parse the file
-        ArrayList banks = parser.parseXml(new FileInputStream(xmlFile));
-
-        //Verify the result
-        LOGGER.info(banks);
-
+        JaxbWriter.jaxbObjectToXml(client);
+        JaxbReader.jaxbXmlToObject();
     }
 }

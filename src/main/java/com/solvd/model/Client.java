@@ -1,34 +1,57 @@
 package com.solvd.model;
 
-public class Client {
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
-   private int idClient;
+
+@XmlRootElement
+public class Client implements Serializable {
+
+   private static final long serialVersionUID = 1L;
+
+   private Integer idClient;
    private String Name;
-   private int Age;
-   private int Passport_Passport_number;
-   private int Passport_Identification_Code;
+   private Integer Age;
+   private Integer Passport_Passport_number;
+   private Integer Passport_Identification_Code;
 
-    public void setIdClient(int idClient) {
+   public Client() {
+       super();
+   }
+
+    public Client(Integer idClient, String name, Integer age, Integer passport_Passport_number,
+                  Integer passport_Identification_Code) {
+        super();
+        this.idClient = idClient;
+        this.Name = name;
+        this.Age = age;
+        this.Passport_Passport_number = passport_Passport_number;
+        this.Passport_Identification_Code = passport_Identification_Code;
+    }
+    @XmlAttribute
+    public void setIdClient(Integer idClient) {
         this.idClient = idClient;
     }
-
+    @XmlElement
     public void setName(String name) {
         Name = name;
     }
-
-    public void setAge(int age) {
+    @XmlElement
+    public void setAge(Integer age) {
         Age = age;
     }
-
-    public void setPassport_Passport_number(int passport_Passport_number) {
+    @XmlElement
+    public void setPassport_Passport_number(Integer passport_Passport_number) {
         Passport_Passport_number = passport_Passport_number;
     }
-
-    public void setPassport_Identification_Code(int passport_Identification_Code) {
+    @XmlElement
+    public void setPassport_Identification_Code(Integer passport_Identification_Code) {
         Passport_Identification_Code = passport_Identification_Code;
     }
 
-    public int getIdClient() {
+    public Integer getIdClient() {
         return idClient;
     }
 
@@ -36,15 +59,15 @@ public class Client {
         return Name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return Age;
     }
 
-    public int getPassport_Passport_number() {
+    public Integer getPassport_Passport_number() {
         return Passport_Passport_number;
     }
 
-    public int getPassport_Identification_Code() {
+    public Integer getPassport_Identification_Code() {
         return Passport_Identification_Code;
     }
 
