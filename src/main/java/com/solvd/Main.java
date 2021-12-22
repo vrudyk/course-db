@@ -52,7 +52,7 @@ public class Main {
 //        List<ClientModel> clientModels = new ClientsDAO().getAllClient();
 //        LOGGER.info(clientModels);
 
-//      //Insert2
+      //Insert2
 //        ClientModel clientModel = new ClientModel();
 //        clientModel.setfName("Irina");
 //        clientModel.setlName("Ribka");

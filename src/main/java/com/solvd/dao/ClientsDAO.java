@@ -70,6 +70,5 @@ public class ClientsDAO extends AbstractDAO implements IClientsDAO {
         session.commit();
         session.close();
     }
-
 }
 

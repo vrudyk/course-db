@@ -2,12 +2,8 @@ import com.solvd.configuration.AbstractDAO;
 import com.solvd.dao.ClientsDAO;
 import com.solvd.dao.interfaces.IClientsDAO;
 import com.solvd.model.ClientModel;
-import com.solvd.util.OpenSession;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -19,41 +15,36 @@ public class ClientModelTest extends AbstractDAO {
     private ClientModel clientModel;
 
     @Test
-    public void updateClient() {
-        String fName = "Nastya";
-        try {
-            SqlSession session = OpenSession.getOpenSession().openSession();
-            entityDAO = session.getMapper(DAOClass);
-            entityDAO.updateClient(clientModel);
-            session.commit();
-            session.close();
-            ClientModel clientModel = new ClientModel();
-            clientModel.setId(clientModel.getId());
-            clientModel.setfName(fName);
-            clientModel.setlName(clientModel.getlName());
-            clientModel.setPhone(clientModel.getPhone());
-            new ClientsDAO().updateClient(clientModel);
-            LOGGER.info(clientModel);
-
-            Assert.assertFalse(Boolean.parseBoolean(fName),"Old product is present");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void testGetAllClients() {
+        ClientsDAO clientsDAO = new ClientsDAO();
+        List<ClientModel> clientModels = clientsDAO.getAllClients();
+        Assert.assertFalse(clientModels.isEmpty(), "Table should not be empty");
+        LOGGER.info("Table" + clientModels);
     }
 
-//    @Test
-//    public void deleteClient() {
-//        String fName = "Ivan";
-//        try {
-//            SqlSession session = OpenSession.getOpenSession().openSession();
-//            entityDAO = session.getMapper(DAOClass);
-//            entityDAO.deleteClient(Boolean.parseBoolean(clientModel.getfName()));
-//            session.commit();
-//            session.close();
-//            boolean isClientPresent = entityDAO.getAllClient().contains(clientModel);
-//            Assert.assertFalse(isClientPresent, "Client is present");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    @Test
+    public void testUpdateClients() {
+        ClientsDAO clientsDAO = new ClientsDAO();
+        ClientModel clientModel = new ClientModel();
+        clientModel.setId(1);
+        clientModel.setfName("Dan");
+        clientModel.setlName("Danover");
+        clientModel.setPhone("380959221212");
+        clientsDAO.updateClient(clientModel);
+
+        List<ClientModel> clientModels = clientsDAO.getAllClients();
+        Assert.assertFalse(clientModels.contains(clientModel), "Table is present");
+    }
+
+    @Test
+    public void testAddClient() {
+        ClientsDAO clientsDAO = new ClientsDAO();
+        ClientModel clientModel = new ClientModel();
+        clientModel.setfName("Irina");
+        clientModel.setlName("Ribka");
+        clientModel.setPhone("380509128376");
+        clientsDAO.addClients(clientModel);
+        boolean isClientTablePresent = clientsDAO.getAllClients().contains(clientModel);
+        Assert.assertFalse(isClientTablePresent, "New ClientTable isn't present");
+    }
 }
