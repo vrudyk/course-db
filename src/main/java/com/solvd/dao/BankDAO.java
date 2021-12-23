@@ -10,11 +10,16 @@ import com.solvd.Main;
 import com.solvd.configuration.AbstractDAO;
 import com.solvd.dao.interfaces.IBanksDAO;
 import com.solvd.model.BankModel;
+import com.solvd.util.OpenSesion;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
 public class BankDAO extends AbstractDAO implements IBanksDAO {
 
     private static final org.apache.log4j.Logger LOGGER = Logger.getLogger(BankDAO.class);
+
+    private IBanksDAO entityDAO;
+    private Class<IBanksDAO> DAOClass = IBanksDAO.class;
 
     @Override
     public List<BankModel> getAllBanks() {
@@ -34,6 +39,8 @@ public class BankDAO extends AbstractDAO implements IBanksDAO {
         }
         return allBanks;
     }
+
+
 
     @Override
     public void deleteBankById(int idBank) {
@@ -71,6 +78,25 @@ public class BankDAO extends AbstractDAO implements IBanksDAO {
         } finally {
             closeAll();
         }
+    }
+    @Override
+    public List<BankModel> getAllBankss() {
+
+        SqlSession session = OpenSesion.getOpenSession().openSession();
+        entityDAO = session.getMapper(DAOClass);
+        List<BankModel> entities = entityDAO.getAllBankss();
+        session.close();
+        return entities;
+    }
+
+    @Override
+    public void addBank(BankModel bankModel) {
+
+        SqlSession session = OpenSesion.getOpenSession().openSession();
+        entityDAO = session.getMapper(DAOClass);
+        entityDAO.addBank(bankModel);
+        session.commit();
+        session.close();
     }
 }
 

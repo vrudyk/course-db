@@ -8,7 +8,11 @@ public interface IBanksDAO {
 
     List<BankModel> getAllBanks();
 
+    List<BankModel> getAllBankss();
+
     void deleteBankById(int idBank);
 
     void insertIntoBank(int idBank, String Name);
+
+    void addBank(BankModel bankModel);
 }

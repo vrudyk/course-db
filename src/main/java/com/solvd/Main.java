@@ -2,6 +2,7 @@ package com.solvd;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solvd.dao.BankDAO;
+import com.solvd.model.BankModel;
 import com.solvd.model.Client;
 import com.solvd.model.Passport;
 import com.solvd.model.Salary;
@@ -23,10 +24,7 @@ import javax.xml.bind.Marshaller;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
+import java.util.*;
 
 public class Main {
 
@@ -73,6 +71,21 @@ public class Main {
         // JsonReader.jsonReaderSalary();
          */
 
+        // MyBatis
+            // Select * From Bank
+        BankDAO bankDAO = new BankDAO();
+        List<BankModel> bankModels = bankDAO.getAllBankss();
+        LOGGER.info(bankModels);
+        LOGGER.info("->");
+            // Insert into Bank
+        BankModel bankModel = new BankModel();
+        bankModel.setIdBank(5);
+        bankModel.setName("NasBank");
+        bankDAO.addBank(bankModel);
+            // Select * From Bank
+        LOGGER.info("-->");
+        List<BankModel> bankModels1 = bankDAO.getAllBankss();
+        LOGGER.info(bankModels1);
 
     }
 }
