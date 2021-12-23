@@ -14,15 +14,5 @@ public interface INavyweaponDAO {
     void updateNavyweapon(NavyweaponModel navyweaponModel);
 
     void deleteNavyweapon(int idNavyweapon);
-
-    //* *TestNG
-    List<NavyweaponModel> getAllnavyWeapon();
-
-    //*TestNG (methods)
-    void addNavyweapon(@Param("idNavyweapon") int idNavyweapon, @Param("nameNavyweapon") String nameNavyweapon, @Param("quantityNavyweapon") int quantityNavyweapon, @Param("weaponIdnavy") int weaponIdnavy);
-
-    void updateNavyweapon(@Param("idNavyweapon") int idNavyweapon, @Param("nameNavyweapon") String nameNavyweapon);
-
-    List<NavyweaponModel> getById(@Param("idNavyweapon") int idNavyweapon);
-}
+   }
 

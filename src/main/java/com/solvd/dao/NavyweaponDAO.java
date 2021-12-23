@@ -53,40 +53,26 @@ public class NavyweaponDAO extends AbstractDAO implements INavyweaponDAO {
         session.close();
     }
 
-    @Override
-    public List<NavyweaponModel> getAllnavyWeapon() {
-        List<NavyweaponModel> allNavyweapons = new ArrayList<>();
-        try {
-            getResultSet("SELECT * FROM bloshkoarmy.navyweapon;");
-            while (resultSet.next()) {
-                NavyweaponModel navyweapon = new NavyweaponModel();
-                navyweapon.setIdNavyweapon(resultSet.getInt("idNavyweapon"));
-                navyweapon.setNameNavyweapon(resultSet.getString("nameNavyweapon"));
-                navyweapon.setQuantityNavyweapon(resultSet.getInt("quantityNavyweapon"));
-                navyweapon.setWeaponIdnavy(resultSet.getInt("weaponIdnavy"));
-                allNavyweapons.add(navyweapon);
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            closeALL();
-        }
-        return allNavyweapons;
-    }
+//    @Override
+//    public List<NavyweaponModel> getAllnavyWeapon() {
+//        List<NavyweaponModel> allNavyweapons = new ArrayList<>();
+//        try {
+//            getResultSet("SELECT * FROM bloshkoarmy.navyweapon;");
+//            while (resultSet.next()) {
+//                NavyweaponModel navyweapon = new NavyweaponModel();
+//                navyweapon.setIdNavyweapon(resultSet.getInt("idNavyweapon"));
+//                navyweapon.setNameNavyweapon(resultSet.getString("nameNavyweapon"));
+//                navyweapon.setQuantityNavyweapon(resultSet.getInt("quantityNavyweapon"));
+//                navyweapon.setWeaponIdnavy(resultSet.getInt("weaponIdnavy"));
+//                allNavyweapons.add(navyweapon);
+//            }
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        } finally {
+//            closeALL();
+//        }
+//        return allNavyweapons;
+//    }
 
-    @Override
-    public void addNavyweapon(int idNavyweapon, String nameNavyweapon, int quantityNavyweapon, int weaponIdnavy) {
-
-    }
-
-    @Override
-    public void updateNavyweapon(int idNavyweapon, String nameNavyweapon) {
-
-    }
-
-    @Override
-    public List<NavyweaponModel> getById(int idNavyweapon) {
-        return null;
-    }
 }
 

@@ -1,117 +1,65 @@
 package database;
 
 import com.solvd.dao.NavyweaponDAO;
-import com.solvd.dao.interfaces.INavyweaponDAO;
 import com.solvd.model.NavyweaponModel;
-import com.solvd.util.IConstants;
-import com.solvd.util.OpenSession;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
-import java.io.Reader;
 import java.util.List;
 
-public class SecondTest extends NavyweaponDAO implements IConstants, INavyweaponDAO {
+public class SecondTest {
     private static final Logger LOGGER = Logger.getLogger(FirstTest.class);
-    private INavyweaponDAO WeaponDAO;
-    private Class<INavyweaponDAO> DAOClass = INavyweaponDAO.class;
-    private List<NavyweaponModel> navyweaponDAOList;
+    NavyweaponDAO navyweaponDAO = new NavyweaponDAO();
+    NavyweaponModel navyweaponModel = new NavyweaponModel();
 
     @BeforeMethod
     public void connectionToDatabase() {
-        try {
-            Reader reader = Resources.getResourceAsReader("mybatis/mybatis-config.xml");
-            LOGGER.info("BeforeMethod");
-            LOGGER.info("Connection is successful");
-        } catch (IOException e) {
-            e.printStackTrace();
-            LOGGER.info("Connection is failed");
-        }
-
+        LOGGER.info("BeforeMethod");
     }
 
     @Test
     public void selectAllNavyWeapon() {
-        SqlSession session = OpenSession.getOpenSession().openSession();
-        WeaponDAO = session.getMapper(DAOClass);
-        navyweaponDAOList = WeaponDAO.getAllNavyweapons();
-        Assert.assertFalse(navyweaponDAOList.isEmpty(), "Table should be not empty");
-        Assert.assertTrue(navyweaponDAOList.size() > 0, "Table should be full with valid data");
-        session.close();
-        LOGGER.info("Table " + navyweaponDAOList);
-
-    }
-
-    @Test
-    public void getById() {
-        SqlSession session = OpenSession.getOpenSession().openSession();
-        WeaponDAO = session.getMapper(DAOClass);
-        List<NavyweaponModel> navyWeapon1 = WeaponDAO.getById(3);
-        Assert.assertFalse(WeaponDAO.getById(3).isEmpty());
-        Assert.assertNotNull(navyWeapon1, "Column has not 'null' values");
-        Assert.assertEquals("null", "null", "Columns should have 'null' values");
-        LOGGER.info(navyWeapon1);
+        List<NavyweaponModel> navyweaponModelList = navyweaponDAO.getAllNavyweapons();
+        Assert.assertFalse(navyweaponModelList.isEmpty(), "Table should be not empty");
+        LOGGER.info("Table " + navyweaponModelList);
+        navyweaponModelList.stream().filter(x -> x.getIdNavyweapon() == 2).forEach(LOGGER::info);
     }
 
     @Test
     public void addNavyweapon() {
-        SqlSession session = OpenSession.getOpenSession().openSession();
-        WeaponDAO = session.getMapper(DAOClass);
-        navyweaponDAOList = WeaponDAO.getAllNavyweapons();
-        Assert.assertEquals("Total 4", "Total 4", "Total should be " + 4);
-        List<NavyweaponModel> navyWeapon1 = WeaponDAO.getById(5);
-        LOGGER.info(navyWeapon1);
-        Assert.assertTrue(WeaponDAO.getById(5).isEmpty(), "Navy weapon with this id already exist");
-        WeaponDAO.addNavyweapon(5, "mina", 7, 2);
-        List<NavyweaponModel> navyWeapon2 = WeaponDAO.getById(5);
-        LOGGER.info(navyWeapon2);
-        navyweaponDAOList = WeaponDAO.getAllNavyweapons();
-        LOGGER.info(navyweaponDAOList);
-        Assert.assertTrue(true, "New navy weapon is not added");
-        Assert.assertEquals("Total 5", "Total 5", "Total should be " + 5);
-        session.commit();
-        session.close();
-
+        List<NavyweaponModel> navyweaponModelList = navyweaponDAO.getAllNavyweapons();
+        LOGGER.info(navyweaponModelList);
+        navyweaponModel.setIdNavyweapon(5);
+        navyweaponModel.setNameNavyweapon("space ship");
+        navyweaponModel.setQuantityNavyweapon(12);
+        navyweaponModel.setWeaponIdnavy(2);
+        navyweaponDAO.addNavyweapon(navyweaponModel);
+        LOGGER.info(navyweaponModel);
+        Assert.assertEquals(navyweaponDAO.getAllNavyweapons().size(), 5, "Size is incorrect");
+        navyweaponModelList.stream().filter(x -> x.getIdNavyweapon() == 5).forEach(LOGGER::info);
     }
 
     @Test
     public void deleteNavyWeapon() {
-        SqlSession session = OpenSession.getOpenSession().openSession();
-        WeaponDAO = session.getMapper(DAOClass);
-        navyweaponDAOList = WeaponDAO.getAllNavyweapons();
-        LOGGER.info(navyweaponDAOList);
-        WeaponDAO.deleteNavyweapon(5);
-        Assert.assertTrue(WeaponDAO.getById(5).isEmpty(), "Navy weapon has successfully deleted");
-        navyweaponDAOList = WeaponDAO.getAllNavyweapons();
-        Assert.assertEquals("Total 5", "Total 5", "Total should be " + 5);
-        Assert.assertEquals("IdLandweapon " + 5 + " is remove ", "IdLandweapon " + 5 + " is remove ", "Deleted id should be " + 5);
-        Assert.assertEquals("Total 4", "Total 4", "Total should be " + 4);
-        Assert.assertTrue(true, "Total should be less than '1' Land weapon");
-        session.commit();
-        session.close();
+        navyweaponDAO.getAllNavyweapons();
+        Assert.assertEquals(navyweaponDAO.getAllNavyweapons().size(), 5, "Navy weapon is already deleted");
+        navyweaponDAO.deleteNavyweapon(5);
+        Assert.assertEquals(navyweaponDAO.getAllNavyweapons().size(), 4, " Size is incorrect");
+        LOGGER.info(navyweaponModel);
     }
 
     @Test
     public void updateNavyweapon() {
-        SqlSession session = OpenSession.getOpenSession().openSession();
-        WeaponDAO = session.getMapper(DAOClass);
-        List<NavyweaponModel> navyWeapon1 = WeaponDAO.getById(4);
-        LOGGER.info(navyWeapon1);
-        Assert.assertFalse(WeaponDAO.getById(4).isEmpty(), "Column should have values");
-        Assert.assertNotNull(navyWeapon1, "Column has not NULL values");
-        WeaponDAO.updateNavyweapon(4, "explore bomb");
-        LOGGER.info(navyWeapon1);
-        Assert.assertNotNull(navyWeapon1, "Updated values should be not NULL");
-        Assert.assertEquals("explore bomb", "explore bomb", "Navy weapon name should be 'explore bomb'");
-        LOGGER.info("Name of navy weapon is updated ");
-        session.commit();
-        session.close();
+        navyweaponDAO.getAllNavyweapons().stream().filter(x -> x.getIdNavyweapon() == 4).forEach(LOGGER::info);
+        // Assert.assertFalse(navyweaponModel.getIdNavyweapon()==6, "Id already exist");
+        navyweaponModel.setIdNavyweapon(4);
+        navyweaponModel.setNameNavyweapon("cross weapon");
+        navyweaponDAO.updateNavyweapon(navyweaponModel);
+        LOGGER.info(navyweaponModel);
+        Assert.assertTrue(navyweaponModel.getNameNavyweapon().contains("cross weapon") && navyweaponModel.getIdNavyweapon() == 4, "Id or name of Navy weapon is incorrect");
+        navyweaponDAO.getAllNavyweapons().stream().filter(x -> x.getIdNavyweapon() == 4).forEach(LOGGER::info);
     }
 
     @AfterMethod

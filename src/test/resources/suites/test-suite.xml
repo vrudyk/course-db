@@ -3,28 +3,12 @@
     <test name="test-1">
         <classes>
             <class name="database.FirstTest">
-                <methods>
-                    <include name="connectToDatabase"/>
-                    <include name="selectAlllandweapon"/>
-                    <include name="getById"/>
-                    <include name="addLandweapon"/>
-                    <include name="deleteLandweapons"/>
-                    <include name="updateLandweapon"/>
-                </methods>
             </class>
         </classes>
     </test>
     <test name="test-2">
         <classes>
             <class name="database.SecondTest">
-                <methods>
-                    <exclude name="connectionToDatabase"/>
-                    <include name="selectAllNavyWeapon"/>
-                    <include name="getById"/>
-                    <include name="addNavyweapon"/>
-                    <include name="deleteNavyWeapon"/>
-                    <include name="updateNavyweapon"/>
-                </methods>
             </class>
         </classes>
     </test>
