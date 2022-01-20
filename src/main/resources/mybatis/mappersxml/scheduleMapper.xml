@@ -1,0 +1,15 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.dao.interfaces.IScheduleDAO">
+    <resultMap id="schedule" type="com.solvd.model.Schedule">
+        <id property="id" column="id"/>
+        <result property="subject_id" column="subject_id"/>
+        <result property="group_id" column="group_id"/>
+        <result property="date" column="date"/>
+        <result property="teacher_id" column="teacher_id"/>
+        <result property="auditory_id" column="auditory_id"/>
+    </resultMap>
+    <select id="getAllSchedule" resultMap="schedule">
+        SELECT * FROM `schedule`
+    </select>
+</mapper>

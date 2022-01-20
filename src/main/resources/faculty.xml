@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<faculty id="55">
+    <acreditation>THIRD</acreditation>
+    <location>Rivne street, 15</location>
+    <name>Computer Science</name>
+    <university_id>1</university_id>
+</faculty>

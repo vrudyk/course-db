@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<universities>
+    <university id="12">
+        <name>State University of Telecommunication</name>
+        <acreditation>4</acreditation>
+    </university>
+    <university id="34">
+        <name>Kyiv International University</name>
+        <acreditation>4</acreditation>
+    </university>
+    <university id="56">
+        <name>University of Laziness</name>
+        <acreditation>3</acreditation>
+    </university>
+</universities>

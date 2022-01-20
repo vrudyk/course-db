@@ -1,0 +1,34 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.dao.interfaces.IStudentDAO">
+    <resultMap id="student" type="com.solvd.model.Student">
+        <id property="id" column="id"/>
+        <result property="firstName" column="firstName"/>
+        <result property="lastName" column="lastName"/>
+        <result property="course" column="course"/>
+        <result property="group_id" column="group_id"/>
+        <result property="phoneNumber" column="phoneNumber"/>
+        <result property="email" column="email"/>
+    </resultMap>
+    <select id="getAllStudents" resultMap="student">
+        SELECT * FROM `student`
+    </select>
+    <delete id="deleteStudent">
+        DELETE FROM `student` WHERE id = #{id}
+    </delete>
+    <insert id="insertIntoStudent">
+        INSERT INTO `student` (id, firstName, lastName, course, group_id, phoneNumber, email)
+        VALUES (#{id}, #{firstName}, #{lastName}, #{course}, #{group_id}, #{phoneNumber}, #{email})
+    </insert>
+    <update id="updateStudent">
+        UPDATE `student` SET
+        id = #{id},
+        firstName = #{firstName},
+        lastName = #{lastName},
+        course = #{course},
+        group_id = #{group_id},
+        phoneNumber = #{phoneNumber},
+        email = #{email}
+        WHERE id = #{id}
+    </update>
+</mapper>
