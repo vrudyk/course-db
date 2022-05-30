@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.dao.interfaces.IClientsDAO">
+    <resultMap id="clients" type="com.solvd.model.ClientsModel">
+        <id property="id" column="id"/>
+        <result property="firstName"  column="First Name"/>
+        <result property="secondName" column="Second Name"/>
+        <result property="eMail" column="E-mail"/>
+        <result property="numberOfPhone" column="NumberOfPhone"/>
+        <result property="onlineShopesId" column="OnlineShopes_id"/>
+    </resultMap>
+
+    <select id="getAllClientsMyBatis" resultMap="clients">
+     select * from clients
+    </select>
+
+    <insert id="addClient" useGeneratedKeys="true" keyProperty="id">
+        insert into Clients (`First Name`, `Second Name`,`E-mail`,NumberOfPhone,`OnlineShopes_id` )
+        values (#{firstName}, #{secondName}, #{eMail},#{numberOfPhone},#{onlineShopesId})
+    </insert>
+
+    <update id="updateName" useGeneratedKeys="true" keyProperty="id">
+        update clients
+        set `First Name`=#{firstName} where `First Name`='MyBatis'
+    </update>
+
+    <delete id="deleteRow" parameterType="int">
+        delete from `clients` where id=#{clientId}
+    </delete>
+
+
+</mapper>

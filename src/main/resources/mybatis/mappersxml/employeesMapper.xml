@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.dao.interfaces.IEmployeesDAO">
+    <resultMap id="employees" type="com.solvd.model.EmployeesModel">
+        <id property="id" column="id"/>
+        <result property="firstName"  column="First Name"/>
+        <result property="secondName" column="Second Name"/>
+        <result property="position" column="Position"/>
+        <result property="onlineShopesId" column="OnlineShopes_id"/>
+    </resultMap>
+
+    <select id="getAllEmployeesMyBatis" resultMap="employees">
+     select * from employees
+    </select>
+
+
+</mapper>

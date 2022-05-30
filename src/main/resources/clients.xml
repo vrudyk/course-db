@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<client>
+    <id>3</id>
+    <firstName>Ivan</firstName>
+    <secondName>Petrov</secondName>
+    <eMail>ivpetr@gmail.com</eMail>
+    <numberOfPhone>537252516</numberOfPhone>
+    <onlineShopesId>2</onlineShopesId>
+</client>
